@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run code generation" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="info.dmerej.hr.end_to_end.RunCodeGen" />
+    <module name="hr-db" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

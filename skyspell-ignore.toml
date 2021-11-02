@@ -1,0 +1,85 @@
+patterns = [
+    "*.ico",
+    "*.lock",
+    "*.min.css",
+    "mvnw*",
+    "package-lock.json",
+]
+project = [
+    "ASGI",
+    "AUTOINCREMENT",
+    "Args",
+    "BACKEND",
+    "CMD",
+    "Cors",
+    "Csrf",
+    "DIRS",
+    "ENV",
+    "Interop",
+    "Kata",
+    "MIDDLEWARE",
+    "PYTHONUNBUFFERED",
+    "Params",
+    "STATICFILES",
+    "TZ",
+    "URLCONF",
+    "VALIDATORS",
+    "Validator",
+    "WORKDIR",
+    "WSGI",
+    "addgroup",
+    "adduser",
+    "ascii",
+    "asgi",
+    "asgiref",
+    "attrs",
+    "axios",
+    "basicinfo",
+    "chown",
+    "clickjacking",
+    "contenttypes",
+    "cors",
+    "corsheaders",
+    "csrf",
+    "django",
+    "djlint",
+    "dmerej",
+    "dotenv",
+    "efrei",
+    "gunicorn",
+    "httpx",
+    "ipdb",
+    "isort",
+    "jdbc",
+    "jdk",
+    "junit",
+    "jupiter",
+    "localhost",
+    "okhttp",
+    "psycopg",
+    "queryset",
+    "readonly",
+    "reqwest",
+    "sql",
+    "sqlparse",
+    "squareup",
+    "staticfiles",
+    "testpaths",
+    "tokio",
+    "util",
+    "varchar",
+    "wsgi",
+    "xerial",
+]
+
+[paths]
+"README.md" = ["runserver"]
+"backend/Dockerfile" = ["sed"]
+"backend/app/settings.py" = ["dj"]
+"backend/hr/templates/hr/base.html" = ["UA"]
+"backend/pyproject.toml" = ["dj"]
+"backend/requirements.txt" = ["dj"]
+pre-push = ["fi"]
+"stress-test/src/lib.rs" = ["b'a"]
+
+[skipped]

@@ -1,0 +1,25 @@
+{
+  "name": "ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "tests:end-to-end": "playwright test",
+    "tests:integration": "vitest run integration/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "dependencies": {
+    "@playwright/test": "^1.49.1",
+    "axios": "^1.13.6",
+    "dotenv": "^17.3.1",
+    "pg": "^8.19.0",
+    "standard": "^17.1.2",
+    "vitest": "^4.0.18"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.18.0"
+  }
+}
