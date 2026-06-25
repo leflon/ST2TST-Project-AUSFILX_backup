@@ -24,6 +24,8 @@ public class AddTeamIntegrationTests {
     void can_create_a_team() {
         var config = new Config();
         config.load();
+        var databaseUrl = config.databaseUrl();
+        System.out.println("Using database URL: " + databaseUrl);
 
         // Call the /add_team route
         var client = new OkHttpClient();
@@ -49,8 +51,6 @@ public class AddTeamIntegrationTests {
 
 
         // Verify the list of teams in the database
-
-        var databaseUrl = config.databaseUrl();
         var databaseUser = config.databaseUser();
 
         try {

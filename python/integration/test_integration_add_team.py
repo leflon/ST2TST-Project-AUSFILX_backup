@@ -4,6 +4,7 @@ import psycopg
 
 
 def test_add_team(base_url: str, database_url: str):
+    print("Using database URL:", database_url)
     # Create a new team named 'devs' using the web API
     url = urljoin(base_url, "add_team")
     response = httpx.post(url, follow_redirects=True, data={"name": "devs"})
