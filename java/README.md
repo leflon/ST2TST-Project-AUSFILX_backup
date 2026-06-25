@@ -2,7 +2,7 @@
 
 ## Configuration
 
-Create a a proerties file in `src/test/resources/tests.properties` containing your group and the first
+Create a properties file in `src/test/resources/tests.properties` containing your group and the first
 letter of your team, like this:
 
 ```
@@ -10,7 +10,7 @@ group=i3
 letter=a
 ```
 
-## Running the end to end tests
+## Running the end-to-end tests
 
 ```
 ./mvnw test -Dtest="info.dmerej.hr.end_to_end.**"
