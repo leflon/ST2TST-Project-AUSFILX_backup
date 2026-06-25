@@ -89,7 +89,7 @@ If you did everything right, you may realized you basically did the same test 3 
 
 - once by hand
 - once with playwright
-- once wth integration tests
+- once with integration tests
 
 And we could imagine you could add a unit test.
 

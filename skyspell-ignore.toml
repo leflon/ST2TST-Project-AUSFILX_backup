@@ -4,6 +4,7 @@ patterns = [
     "*.min.css",
     "mvnw*",
     "package-lock.json",
+    "pom.xml",
 ]
 project = [
     "ASGI",
@@ -23,6 +24,7 @@ project = [
     "STATICFILES",
     "TZ",
     "URLCONF",
+    "Url",
     "VALIDATORS",
     "Validator",
     "WORKDIR",
@@ -37,6 +39,8 @@ project = [
     "basicinfo",
     "chown",
     "clickjacking",
+    "codegen",
+    "commonjs",
     "contenttypes",
     "cors",
     "corsheaders",
@@ -64,6 +68,7 @@ project = [
     "sqlparse",
     "squareup",
     "staticfiles",
+    "td",
     "testpaths",
     "tokio",
     "util",
@@ -79,7 +84,13 @@ project = [
 "backend/hr/templates/hr/base.html" = ["UA"]
 "backend/pyproject.toml" = ["dj"]
 "backend/requirements.txt" = ["dj"]
+"java/README.md" = [
+    "Dtest",
+    "mvnw",
+]
+"java/src/test/java/info/dmerej/hr/end_to_end/AddTeamEndToEndTests.java" = ["td"]
 pre-push = ["fi"]
 "stress-test/src/lib.rs" = ["b'a"]
+"ts/README.md" = ["npx"]
 
 [skipped]
