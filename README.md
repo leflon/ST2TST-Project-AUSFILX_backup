@@ -8,7 +8,7 @@ Go to `https://<letter>.<group>.hr.dmerej.info`.
 
 Do some manual, exploratory testing first.
 
-Create a test plan and run it manually - try to find as many issues as possible - and try to find different _kinds_ of issues.\*
+Create a test plan and run it manually - try to find as many issues as possible - and try to find different _kinds_ of issues.
 
 Put all the bugs you found into the bug tracker
 
