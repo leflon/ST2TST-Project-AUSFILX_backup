@@ -1,0 +1,7 @@
+BEGIN;
+DROP TABLE "hr_employee" CASCADE;
+DROP TABLE "hr_team" CASCADE;
+DROP TABLE "hr_contract" CASCADE;
+DROP TABLE "hr_basicinfo" CASCADE;
+DROP TABLE "hr_address" CASCADE;
+COMMIT;
