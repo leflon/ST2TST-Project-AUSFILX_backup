@@ -70,8 +70,6 @@ In other words, it passes the first time you run it, then it fails because the b
 Find a strategy to handle clean separation between tests while still
 using the database.
 
-Note: do NOT use the `/reset_db` route, that's cheating ...
-
 ## Step 3.4
 
 Once your done, rewrite the tests from part 1 and 2 using raw HTTP requests
@@ -79,9 +77,9 @@ and SQL queries.
 
 Some clues:
 
-Use DBeaver to inspect the contents of the database by opening the file `db.sqlite3`.
-
-Use your browser dev extensions to look at the payload of the POST requests
+ * Use DBeaver or a similar solution to see the content of the PostgreSQL database (you can get the 
+database URL in the test logs)
+* Use your browser dev extensions to look at the payload of the POST requests
 
 The tables used by the backend code can be created and dropped using the `up` and `down` sql scripts respectively.
 
