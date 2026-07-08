@@ -2,7 +2,7 @@
 
 # Part 1 - exploratory testing
 
-Go to `https://<letter>.<group>.hr.dmerej.info`.
+Go to [https://a.i2.hr.dmerej.info](https://a.i2.hr.dmerej.info)
 
 ## Step 1.1
 
