@@ -6,7 +6,7 @@
   - **Expected result:** No employees (**Status**: ✅)
 
 - **Task \#2**: Add an employee (**/add\_employee**)  
-  - **Task \#2.1**: Try to submit the form with empty fields  ❌
+  - **Task \#2.1**: Try to submit the form with empty fields\
 		**Expected result**: Should not allow form submission (**Status**: ✅)
   - **Task \#2.2**: Try to submit with invalid email (incorrect format)  
 		**Expected result:** Should not allow form submission (**Status**: ✅) 
@@ -33,9 +33,9 @@
 - **Task \#5: Edit employee basic info (/employee/:id/basic\_info)**
   - **Task \#5.1:** Try to submit form with invalid name and/or e-mail (empty / wrong format)  
 		**Expected result:** Should not allow form submission (**Status**: ✅)
-  - **Task \#5.2:** Try to submit form with an already used e-mail
+  - **Task \#5.2:** Try to submit form with an already used e-mail\
 		**Expected result:** Should not allow form submission (**Status**: ❌) 
-  - **Task \#5.3:** Try to submit form with valid new data
+  - **Task \#5.3:** Try to submit form with valid new data\
 		**Expected result:** Should redirect to /employee/:id, showing updated data. (**Status**: ✅)
 
 - **Task \#6: Edit an employee address (/employee/:id/address)**
@@ -49,7 +49,7 @@
 		**Expected result:** Displayed data should match provided data from Task \#6.2 (**Status**: ❌)
 
 - **Task \#7: Edit an employee contract (/employee/:id/contract)**
-  - **Task \#7.1:** Try to modify the contract date 
+  - **Task \#7.1:** Try to modify the contract date\
 		**Expected result:** Should allow to modify the date input (**Status**: ❌) 
   - **Task \#7.2**: Try to submit with empty date/job title  
 		**Expected result**: Should not allow form submission (**Status**: ✅) 
@@ -99,7 +99,8 @@
   - **Task \#12.2**: Select “no team” and submit form  
 		**Expected result:** User should be removed from the team. (**Status**: ✅)
 
-- **Task \#13: Delete a team (/team/delete/:id)** - **Task \#13.1:** Click on the delete button from a Team  
+- **Task \#13: Delete a team (/team/delete/:id)**
+  - **Task \#13.1:** Click on the delete button from a Team\
 	**Expected result:** Should redirect to the /team/delete/:id page (**Status**: ✅) 
   - **Task \#13.2:** Click on the Proceed Button.  
 	**Expected result:** Should redirect to the /team page and the team selected on the previous step should not be in the table (**Status**: ✅) 
@@ -112,7 +113,7 @@
     **Expected result:** Should redirect to the /employee page where the selected employee to delete in step 12.1 should not appear. (**Status**: ✅)
 
 - **Task \#15: Reset Database (/reset\_db)**
-  - **Task \#15.1: Click on the reset database button on the Home**
+  - **Task \#15.1: Click on the reset database button on the Home**\
     **Expected result:** Should redirect to the /reset\_db page (**Status**: ✅) 
   - **Task \#15.2:** Click on the “Proceed” button”  
 	**Expected result:** Should redirect to the Home. (**Status**: ✅) 
