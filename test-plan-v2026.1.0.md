@@ -107,7 +107,8 @@
   - **Task \#14.1:** Click on the delete button from a Team\
     **Expected result:** Should redirect to the /team/delete/:id page (**Status**: ❌)
   - **Task \#14.2:** Click on the Proceed Button.  
-    **Expected result:** Should redirect to the /team page and the team selected on the previous step should not be in the table (**Status**: ❌)
+    **Expected result 1:** Should redirect to the /team page and the team selected on the previous step should not be in the table (**Status**: ❌)
+    **Expected result 1:** Should not delete the employees from the Team that is being deleted (**Status**: ❌)
 
 - **Task \#15: Delete an employee (/employee/delete/:id)**
   - **Task \#15.1:** On the /employee page click on the “Delete” button of the employee you want to delete.  
