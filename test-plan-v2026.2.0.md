@@ -105,14 +105,14 @@
 
 - **Task \#14: Delete an non empty team (/team/delete/:id)**
   - **Task \#14.1:** Click on the delete button from a Team\
-    **Expected result:** Should redirect to the /team/delete/:id page (**Status**: ❌)
+    **Expected result:** Should redirect to the /team/delete/:id page (**Status**: ✅)
   - **Task \#14.2:** Click on the Proceed Button.  
-    **Expected result 1:** Should redirect to the /team page and the team selected on the previous step should not be in the table (**Status**: ❌)
+    **Expected result 1:** Should redirect to the /team page and the team selected on the previous step should not be in the table (**Status**: ✅)
     **Expected result 1:** Should not delete the employees from the Team that is being deleted (**Status**: ❌)
 
 - **Task \#15: Delete an employee (/employee/delete/:id)**
   - **Task \#15.1:** On the /employee page click on the “Delete” button of the employee you want to delete.  
-    **Expected result:** Should redirect to the employee/delete/:id page where the information of the employee is displayed (eg. name and email) (**Status**: ❌)
+    **Expected result:** Should redirect to the employee/delete/:id page where the information of the employee is displayed (eg. name and email) (**Status**: ✅)
   - **Task \#15.2:** Click on the “Proceed” button”  
     **Expected result:** Should redirect to the /employee page where the selected employee to delete in step 12.1 should not appear. (**Status**: ✅)
 
