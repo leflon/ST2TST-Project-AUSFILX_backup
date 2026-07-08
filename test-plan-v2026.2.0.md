@@ -1,4 +1,4 @@
-# v2026.1.0 - Testing plan
+# v2026.2.0 - Testing plan
 
 **Start with empty Database.**
 
