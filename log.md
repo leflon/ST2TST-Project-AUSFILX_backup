@@ -22,3 +22,11 @@ Then we added the `fixtures.ts` file, that automatically resets the Database (`r
 For tests that require a first user in Database, we also added the `withUser` fixture, that gets executed when it is imported along with `page` in the test.
 
 But, since Playwright executes tests in parallel by default, to avoid `resetDb` from one worker to mess with the tests of another worker, we modified `package.json` to add `--workers=1` in the `tests:end-to-end` script, so that there is no parallelism and no risk of our fixtures clashing with each other.
+
+### Step 2.4
+
+We added the following test:
+ - Negative zip code in `add-employee`
+ - Should not delete users of a team when we delete the team in `delete-team`. We also added the `withTeam` fixture to make this test.
+ - Should not allow blank team name: When we input a blank team name, the server returns an HTTP 500 error. Although it *does* prevent blank names from being created, it should still fail because we don't want HTTP 500 errors, we should have proper error message instead.
+ 

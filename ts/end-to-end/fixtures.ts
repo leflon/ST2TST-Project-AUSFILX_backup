@@ -3,6 +3,7 @@ import { test as base } from "@playwright/test";
 type Fixtures = {
   resetDb: void;
   withUser: void;
+  withTeam: void;
 };
 
 export const test = base.extend<Fixtures>({
@@ -26,6 +27,13 @@ export const test = base.extend<Fixtures>({
     await page.getByRole("textbox", { name: "Hiring date" }).fill("2004-02-11");
     await page.getByRole("textbox", { name: "Job title" }).fill("CEO");
     await page.getByRole("button", { name: "Add" }).click();
+    await use();
+  },
+  withTeam: async ({ page }, use) => {
+    await page.goto("/add_team");
+    await page.getByRole("textbox", { name: "Name" }).fill("Super Team");
+    await page.getByRole("button", { name: "Add" }).click();
+    
     await use();
   },
 });
