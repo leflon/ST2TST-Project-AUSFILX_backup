@@ -1,11 +1,14 @@
 import { test as base, defineConfig } from "@playwright/test";
 import { AddEmployeePage, Employee, mockEmployee } from "./pom/AddEmployeePage";
 import { AddTeamPage, mockTeam } from "./pom/AddTeamPage";
+import { ResetDbPage } from "./pom/ResetDbPage";
 
 type Fixtures = {
   resetDb: void;
   employee: Employee;
   team: string;
+  addEmployeePage: AddEmployeePage;
+  addTeamPage: AddTeamPage;
 };
 
 defineConfig({
@@ -15,12 +18,19 @@ defineConfig({
 });
 
 export const test = base.extend<Fixtures>({
+  addEmployeePage: async ({ page }, use) => {
+    const addEmployeePage = new AddEmployeePage(page);
+    await addEmployeePage.goto();
+    await use(addEmployeePage);
+  },
+  addTeamPage: async ({ page }, use) => {
+    const addTeamPage = new AddTeamPage(page);
+    await addTeamPage.goto();
+    await use(addTeamPage);
+  },
   resetDb: [
     async ({ page }, use) => {
-      // Before test: Reset DB
-      await page.goto("/reset_db");
-      await page.getByRole("button", { name: "Proceed" }).click();
-
+      await new ResetDbPage(page).reset();
       await use();
     },
     { auto: true }, // Perform this before every test automatically

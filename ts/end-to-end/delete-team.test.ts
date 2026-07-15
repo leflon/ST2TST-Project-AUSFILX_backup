@@ -1,15 +1,26 @@
 import { test, expect } from './fixtures';
+import { EmployeesPage } from './pom/EmployeesPage';
+import { EditEmployeePage } from './pom/EditEmployeePage';
+import { AddToTeamPage } from './pom/AddToTeamPage';
+import { TeamsPage } from './pom/TeamsPage';
+import { DeleteTeamPage } from './pom/DeleteTeamPage';
 
 test('Should not delete members of a team when deleting the team', async ({ page, employee, team }) => {
-  await page.goto('/employees');
-  await page.getByRole('link', { name: 'Edit' }).first().click();
-  await page.getByRole('link', { name: 'Add to team' }).click();
-  await page.getByLabel('Team').selectOption(team + ' team')
-  await page.getByRole('button', { name: 'Add' }).click();
-  await page.goto('/teams');
-  await page.getByRole('link', { name: 'Delete' }).first().click();
-  await page.getByRole('button', { name: 'Proceed' }).click();
-  await page.goto('/employees');
+  const employeesPage = new EmployeesPage(page);
+  const editEmployeePage = new EditEmployeePage(page);
+  const addToTeamPage = new AddToTeamPage(page);
+  const teamsPage = new TeamsPage(page);
+  const deleteTeamPage = new DeleteTeamPage(page);
 
-  expect(page.getByText("No employees")).not.toBeVisible();
+  await employeesPage.goto();
+  await employeesPage.editFirst();
+  await editEmployeePage.goToAddToTeam();
+  await addToTeamPage.addToTeam(team);
+
+  await teamsPage.goto();
+  await teamsPage.deleteFirst();
+  await deleteTeamPage.proceed();
+
+  await employeesPage.goto();
+  await expect(employeesPage.getEmployeeByName(employee.name)).toBeVisible();
 });

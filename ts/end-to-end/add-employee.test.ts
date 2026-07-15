@@ -1,23 +1,27 @@
 import { test, expect } from './fixtures';
+import { mockEmployee } from './pom/AddEmployeePage';
 
-test('should not send the form with empty fields', async ({ page }) => {
-  await page.goto('/add_employee');
-  await page.getByRole('button', { name: 'Add' }).click();
+test('should not send the form with empty fields', async ({ addEmployeePage, page }) => {
 
-  // If we are redirected to /employees, this means the form was submitted.
+  await addEmployeePage.addEmployee({
+    name: "",
+    email: "",
+    addressLine1: "",
+    addressLine2: "",
+    city: "",
+    zip: "",
+    hiringDate: "",
+    jobTitle: "",
+  });
   expect(page.url()).not.toBe('/employees');
 });
 
-test('insert a negative zipcode', async ({ page }) => {
-  await page.goto('/add_employee');
-  await page.getByRole('textbox', { name: 'Name' }).fill('Test');
-  await page.getByRole('textbox', { name: 'Email' }).fill('test@test.com');
-  await page.locator('#id_address_line1').fill('Test rue test');
-  await page.getByRole('textbox', { name: 'City' }).fill('Test');
-  await page.getByRole('spinbutton', { name: 'Zip code' }).fill('-12345');
-  await page.getByRole('textbox', { name: 'Hiring date' }).fill('2026-07-15');
-  await page.getByRole('textbox', { name: 'Job title' }).fill('dev');
-  await page.getByRole('button', { name: 'Add' }).click();
+test('insert a negative zipcode', async ({ addEmployeePage, page }) => {
+  test.setTimeout(3_000);
+  await addEmployeePage.addEmployee({
+    ...mockEmployee,
+    zip: '-123456'
+  });
   
   await expect(page.getByText('Zip code must be a positive number')).toBeVisible();
 });

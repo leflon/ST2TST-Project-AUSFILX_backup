@@ -7,11 +7,13 @@ export class AddTeamPage {
   readonly page: Page;
   readonly nameInput: Locator;
   readonly submitButton: Locator;
+  readonly blankNameError: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.nameInput = page.getByRole("textbox", { name: "Name" });
     this.submitButton = page.getByRole("button", { name: "Add" });
+    this.blankNameError = page.getByText("Team name cannot be blank.");
   }
 
   async goto() {

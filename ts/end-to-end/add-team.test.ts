@@ -1,32 +1,16 @@
 import { test, expect } from './fixtures';
+import { TeamsPage } from './pom/TeamsPage';
 
-test("has title", async ({browser}) => {
-  // TODO: remove 'slowMo' when done debugging
-  const page = await browser.newPage();
-
-  // Reset database
-  await page.goto("/reset_db");
-  const proceedButton = page.locator("button:has-text('proceed')");
-  await proceedButton.click();
-
-  // Create a new team
-  await page.goto("/add_team");
-  const nameInput = page.locator('input[name="name"]');
+test("has title", async ({ addTeamPage, page }) => {
   const teamName = "my team";
-  await nameInput.fill(teamName);
-  await page.click("text='Add'");
+  await addTeamPage.addTeam(teamName);
 
-  // Check the team has been created
-  await page.goto("/teams");
-  const isVisible = await page.isVisible(`td:has-text('${teamName}')`);
-  expect(isVisible).toBe(true);
+  const teamsPage = new TeamsPage(page);
+  await teamsPage.goto();
+  await expect(teamsPage.getTeamByName(teamName)).toBeVisible();
 });
 
-test("should not allow blank team name", async ({ page }) => {
-  await page.goto("/add_team");
-  await page.getByRole('textbox', { name: 'Name' }).click();
-  await page.getByRole('textbox', { name: 'Name' }).fill('    ');
-  await page.getByRole('button', { name: 'Add' }).click();
-  
-  expect(page.getByText("Team name cannot be blank.")).toBeVisible();
+test("should not allow blank team name", async ({ addTeamPage }) => {
+  await addTeamPage.addTeam("  ");
+  await expect(addTeamPage.blankNameError).toBeVisible();
 });
