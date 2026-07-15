@@ -1,10 +1,18 @@
-import { test as base } from "@playwright/test";
+import { test as base, defineConfig } from "@playwright/test";
+import { AddEmployeePage, Employee, mockEmployee } from "./pom/AddEmployeePage";
+import { AddTeamPage, mockTeam } from "./pom/AddTeamPage";
 
 type Fixtures = {
   resetDb: void;
-  withUser: void;
-  withTeam: void;
+  employee: Employee;
+  team: string;
 };
+
+defineConfig({
+  use: {
+    baseURL: "https://a.i2.hr.dmerej.info",
+  },
+});
 
 export const test = base.extend<Fixtures>({
   resetDb: [
@@ -17,24 +25,18 @@ export const test = base.extend<Fixtures>({
     },
     { auto: true }, // Perform this before every test automatically
   ],
-  withUser: async ({ page }, use) => {
-    await page.goto("/add_employee");
-    await page.getByRole("textbox", { name: "Name" }).fill("Paul");
-    await page.getByRole("textbox", { name: "Email" }).fill("paul@leflon.fr");
-    await page.locator("#id_address_line1").fill("36 rue des rues");
-    await page.getByRole("textbox", { name: "City" }).fill("Paris");
-    await page.getByRole("spinbutton", { name: "Zip code" }).fill("75015");
-    await page.getByRole("textbox", { name: "Hiring date" }).fill("2004-02-11");
-    await page.getByRole("textbox", { name: "Job title" }).fill("CEO");
-    await page.getByRole("button", { name: "Add" }).click();
-    await use();
+  employee: async ({ page }, use) => {
+    const addEmployeePage = new AddEmployeePage(page);
+    await addEmployeePage.goto();
+    await addEmployeePage.addEmployee(mockEmployee);
+    await use(mockEmployee);
   },
-  withTeam: async ({ page }, use) => {
-    await page.goto("/add_team");
-    await page.getByRole("textbox", { name: "Name" }).fill("Super Team");
-    await page.getByRole("button", { name: "Add" }).click();
-    
-    await use();
+  team: async ({ page }, use) => {
+    const addTeamPage = new AddTeamPage(page);
+    await addTeamPage.goto();
+    await addTeamPage.addTeam(mockTeam);
+
+    await use(mockTeam);
   },
 });
 

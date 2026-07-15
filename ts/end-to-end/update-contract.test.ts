@@ -1,6 +1,6 @@
 import { test, expect } from './fixtures';
 
-test('Should allow contract date edition', async ({ page, withUser }) => {
+test('Should allow contract date edition', async ({ page, employee }) => {
   test.setTimeout(3_000); // If the input was not modified, the test would hang for too long.
   await page.goto('/employees');
   await page.getByRole('link', { name: 'Edit' }).first().click();
