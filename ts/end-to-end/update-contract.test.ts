@@ -1,9 +1,7 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './fixtures';
 
-
-
-test('Should allow contract date edition', async ({ page }) => {
-  await page.goto('https://a.i2.hr.dmerej.info/employees');
+test('Should allow contract date edition', async ({ page, withUser }) => {
+  await page.goto('/employees');
   await page.getByRole('link', { name: 'Edit' }).first().click();
   await page.getByRole('link', { name: 'Update contract' }).click();
   const input = page.getByRole('textbox', { name: 'Hiring date' })

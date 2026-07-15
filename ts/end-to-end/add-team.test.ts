@@ -1,8 +1,7 @@
-import { test, expect, chromium } from "@playwright/test";
+import { test, expect } from './fixtures';
 
-test("has title", async () => {
+test("has title", async ({browser}) => {
   // TODO: remove 'slowMo' when done debugging
-  const browser = await chromium.launch({ slowMo: 1000 });
   const page = await browser.newPage();
 
   // Reset database

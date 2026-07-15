@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "tests:end-to-end": "playwright test",
+    "tests:end-to-end": "playwright test --workers=1",
     "tests:integration": "vitest run integration/"
   },
   "keywords": [],
